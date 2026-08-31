@@ -12,6 +12,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppController = void 0;
 const common_1 = require("@nestjs/common");
 let AppController = class AppController {
+    getRoot() {
+        return {
+            service: 'FieldOps API',
+            status: 'online',
+            version: '1.0.0',
+            apiPrefix: '/api/v1',
+            timestamp: new Date().toISOString(),
+        };
+    }
     getHealth() {
         return {
             success: true,
@@ -22,6 +31,12 @@ let AppController = class AppController {
     }
 };
 exports.AppController = AppController;
+__decorate([
+    (0, common_1.Get)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "getRoot", null);
 __decorate([
     (0, common_1.Get)('health'),
     __metadata("design:type", Function),

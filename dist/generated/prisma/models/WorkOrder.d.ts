@@ -1,0 +1,1355 @@
+import type * as runtime from "@prisma/client/runtime/client";
+import type * as $Enums from "../enums.js";
+import type * as Prisma from "../internal/prismaNamespace.js";
+export type WorkOrderModel = runtime.Types.Result.DefaultSelection<Prisma.$WorkOrderPayload>;
+export type AggregateWorkOrder = {
+    _count: WorkOrderCountAggregateOutputType | null;
+    _min: WorkOrderMinAggregateOutputType | null;
+    _max: WorkOrderMaxAggregateOutputType | null;
+};
+export type WorkOrderMinAggregateOutputType = {
+    id: string | null;
+    organizationId: string | null;
+    customerId: string | null;
+    serviceRequestId: string | null;
+    title: string | null;
+    description: string | null;
+    status: $Enums.WorkOrderStatus | null;
+    priority: $Enums.WorkOrderPriority | null;
+    scheduledStart: Date | null;
+    scheduledEnd: Date | null;
+    createdAt: Date | null;
+    updatedAt: Date | null;
+};
+export type WorkOrderMaxAggregateOutputType = {
+    id: string | null;
+    organizationId: string | null;
+    customerId: string | null;
+    serviceRequestId: string | null;
+    title: string | null;
+    description: string | null;
+    status: $Enums.WorkOrderStatus | null;
+    priority: $Enums.WorkOrderPriority | null;
+    scheduledStart: Date | null;
+    scheduledEnd: Date | null;
+    createdAt: Date | null;
+    updatedAt: Date | null;
+};
+export type WorkOrderCountAggregateOutputType = {
+    id: number;
+    organizationId: number;
+    customerId: number;
+    serviceRequestId: number;
+    title: number;
+    description: number;
+    status: number;
+    priority: number;
+    scheduledStart: number;
+    scheduledEnd: number;
+    createdAt: number;
+    updatedAt: number;
+    _all: number;
+};
+export type WorkOrderMinAggregateInputType = {
+    id?: true;
+    organizationId?: true;
+    customerId?: true;
+    serviceRequestId?: true;
+    title?: true;
+    description?: true;
+    status?: true;
+    priority?: true;
+    scheduledStart?: true;
+    scheduledEnd?: true;
+    createdAt?: true;
+    updatedAt?: true;
+};
+export type WorkOrderMaxAggregateInputType = {
+    id?: true;
+    organizationId?: true;
+    customerId?: true;
+    serviceRequestId?: true;
+    title?: true;
+    description?: true;
+    status?: true;
+    priority?: true;
+    scheduledStart?: true;
+    scheduledEnd?: true;
+    createdAt?: true;
+    updatedAt?: true;
+};
+export type WorkOrderCountAggregateInputType = {
+    id?: true;
+    organizationId?: true;
+    customerId?: true;
+    serviceRequestId?: true;
+    title?: true;
+    description?: true;
+    status?: true;
+    priority?: true;
+    scheduledStart?: true;
+    scheduledEnd?: true;
+    createdAt?: true;
+    updatedAt?: true;
+    _all?: true;
+};
+export type WorkOrderAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.WorkOrderWhereInput;
+    orderBy?: Prisma.WorkOrderOrderByWithRelationInput | Prisma.WorkOrderOrderByWithRelationInput[];
+    cursor?: Prisma.WorkOrderWhereUniqueInput;
+    take?: number;
+    skip?: number;
+    _count?: true | WorkOrderCountAggregateInputType;
+    _min?: WorkOrderMinAggregateInputType;
+    _max?: WorkOrderMaxAggregateInputType;
+};
+export type GetWorkOrderAggregateType<T extends WorkOrderAggregateArgs> = {
+    [P in keyof T & keyof AggregateWorkOrder]: P extends '_count' | 'count' ? T[P] extends true ? number : Prisma.GetScalarType<T[P], AggregateWorkOrder[P]> : Prisma.GetScalarType<T[P], AggregateWorkOrder[P]>;
+};
+export type WorkOrderGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.WorkOrderWhereInput;
+    orderBy?: Prisma.WorkOrderOrderByWithAggregationInput | Prisma.WorkOrderOrderByWithAggregationInput[];
+    by: Prisma.WorkOrderScalarFieldEnum[] | Prisma.WorkOrderScalarFieldEnum;
+    having?: Prisma.WorkOrderScalarWhereWithAggregatesInput;
+    take?: number;
+    skip?: number;
+    _count?: WorkOrderCountAggregateInputType | true;
+    _min?: WorkOrderMinAggregateInputType;
+    _max?: WorkOrderMaxAggregateInputType;
+};
+export type WorkOrderGroupByOutputType = {
+    id: string;
+    organizationId: string;
+    customerId: string;
+    serviceRequestId: string | null;
+    title: string;
+    description: string;
+    status: $Enums.WorkOrderStatus;
+    priority: $Enums.WorkOrderPriority;
+    scheduledStart: Date | null;
+    scheduledEnd: Date | null;
+    createdAt: Date;
+    updatedAt: Date;
+    _count: WorkOrderCountAggregateOutputType | null;
+    _min: WorkOrderMinAggregateOutputType | null;
+    _max: WorkOrderMaxAggregateOutputType | null;
+};
+export type GetWorkOrderGroupByPayload<T extends WorkOrderGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<WorkOrderGroupByOutputType, T['by']> & {
+    [P in ((keyof T) & (keyof WorkOrderGroupByOutputType))]: P extends '_count' ? T[P] extends boolean ? number : Prisma.GetScalarType<T[P], WorkOrderGroupByOutputType[P]> : Prisma.GetScalarType<T[P], WorkOrderGroupByOutputType[P]>;
+}>>;
+export type WorkOrderWhereInput = {
+    AND?: Prisma.WorkOrderWhereInput | Prisma.WorkOrderWhereInput[];
+    OR?: Prisma.WorkOrderWhereInput[];
+    NOT?: Prisma.WorkOrderWhereInput | Prisma.WorkOrderWhereInput[];
+    id?: Prisma.StringFilter<"WorkOrder"> | string;
+    organizationId?: Prisma.StringFilter<"WorkOrder"> | string;
+    customerId?: Prisma.StringFilter<"WorkOrder"> | string;
+    serviceRequestId?: Prisma.StringNullableFilter<"WorkOrder"> | string | null;
+    title?: Prisma.StringFilter<"WorkOrder"> | string;
+    description?: Prisma.StringFilter<"WorkOrder"> | string;
+    status?: Prisma.EnumWorkOrderStatusFilter<"WorkOrder"> | $Enums.WorkOrderStatus;
+    priority?: Prisma.EnumWorkOrderPriorityFilter<"WorkOrder"> | $Enums.WorkOrderPriority;
+    scheduledStart?: Prisma.DateTimeNullableFilter<"WorkOrder"> | Date | string | null;
+    scheduledEnd?: Prisma.DateTimeNullableFilter<"WorkOrder"> | Date | string | null;
+    createdAt?: Prisma.DateTimeFilter<"WorkOrder"> | Date | string;
+    updatedAt?: Prisma.DateTimeFilter<"WorkOrder"> | Date | string;
+    organization?: Prisma.XOR<Prisma.OrganizationScalarRelationFilter, Prisma.OrganizationWhereInput>;
+    customer?: Prisma.XOR<Prisma.CustomerScalarRelationFilter, Prisma.CustomerWhereInput>;
+    serviceRequest?: Prisma.XOR<Prisma.ServiceRequestNullableScalarRelationFilter, Prisma.ServiceRequestWhereInput> | null;
+    assignments?: Prisma.WorkOrderAssignmentListRelationFilter;
+    events?: Prisma.WorkOrderEventListRelationFilter;
+};
+export type WorkOrderOrderByWithRelationInput = {
+    id?: Prisma.SortOrder;
+    organizationId?: Prisma.SortOrder;
+    customerId?: Prisma.SortOrder;
+    serviceRequestId?: Prisma.SortOrderInput | Prisma.SortOrder;
+    title?: Prisma.SortOrder;
+    description?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
+    priority?: Prisma.SortOrder;
+    scheduledStart?: Prisma.SortOrderInput | Prisma.SortOrder;
+    scheduledEnd?: Prisma.SortOrderInput | Prisma.SortOrder;
+    createdAt?: Prisma.SortOrder;
+    updatedAt?: Prisma.SortOrder;
+    organization?: Prisma.OrganizationOrderByWithRelationInput;
+    customer?: Prisma.CustomerOrderByWithRelationInput;
+    serviceRequest?: Prisma.ServiceRequestOrderByWithRelationInput;
+    assignments?: Prisma.WorkOrderAssignmentOrderByRelationAggregateInput;
+    events?: Prisma.WorkOrderEventOrderByRelationAggregateInput;
+};
+export type WorkOrderWhereUniqueInput = Prisma.AtLeast<{
+    id?: string;
+    AND?: Prisma.WorkOrderWhereInput | Prisma.WorkOrderWhereInput[];
+    OR?: Prisma.WorkOrderWhereInput[];
+    NOT?: Prisma.WorkOrderWhereInput | Prisma.WorkOrderWhereInput[];
+    organizationId?: Prisma.StringFilter<"WorkOrder"> | string;
+    customerId?: Prisma.StringFilter<"WorkOrder"> | string;
+    serviceRequestId?: Prisma.StringNullableFilter<"WorkOrder"> | string | null;
+    title?: Prisma.StringFilter<"WorkOrder"> | string;
+    description?: Prisma.StringFilter<"WorkOrder"> | string;
+    status?: Prisma.EnumWorkOrderStatusFilter<"WorkOrder"> | $Enums.WorkOrderStatus;
+    priority?: Prisma.EnumWorkOrderPriorityFilter<"WorkOrder"> | $Enums.WorkOrderPriority;
+    scheduledStart?: Prisma.DateTimeNullableFilter<"WorkOrder"> | Date | string | null;
+    scheduledEnd?: Prisma.DateTimeNullableFilter<"WorkOrder"> | Date | string | null;
+    createdAt?: Prisma.DateTimeFilter<"WorkOrder"> | Date | string;
+    updatedAt?: Prisma.DateTimeFilter<"WorkOrder"> | Date | string;
+    organization?: Prisma.XOR<Prisma.OrganizationScalarRelationFilter, Prisma.OrganizationWhereInput>;
+    customer?: Prisma.XOR<Prisma.CustomerScalarRelationFilter, Prisma.CustomerWhereInput>;
+    serviceRequest?: Prisma.XOR<Prisma.ServiceRequestNullableScalarRelationFilter, Prisma.ServiceRequestWhereInput> | null;
+    assignments?: Prisma.WorkOrderAssignmentListRelationFilter;
+    events?: Prisma.WorkOrderEventListRelationFilter;
+}, "id">;
+export type WorkOrderOrderByWithAggregationInput = {
+    id?: Prisma.SortOrder;
+    organizationId?: Prisma.SortOrder;
+    customerId?: Prisma.SortOrder;
+    serviceRequestId?: Prisma.SortOrderInput | Prisma.SortOrder;
+    title?: Prisma.SortOrder;
+    description?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
+    priority?: Prisma.SortOrder;
+    scheduledStart?: Prisma.SortOrderInput | Prisma.SortOrder;
+    scheduledEnd?: Prisma.SortOrderInput | Prisma.SortOrder;
+    createdAt?: Prisma.SortOrder;
+    updatedAt?: Prisma.SortOrder;
+    _count?: Prisma.WorkOrderCountOrderByAggregateInput;
+    _max?: Prisma.WorkOrderMaxOrderByAggregateInput;
+    _min?: Prisma.WorkOrderMinOrderByAggregateInput;
+};
+export type WorkOrderScalarWhereWithAggregatesInput = {
+    AND?: Prisma.WorkOrderScalarWhereWithAggregatesInput | Prisma.WorkOrderScalarWhereWithAggregatesInput[];
+    OR?: Prisma.WorkOrderScalarWhereWithAggregatesInput[];
+    NOT?: Prisma.WorkOrderScalarWhereWithAggregatesInput | Prisma.WorkOrderScalarWhereWithAggregatesInput[];
+    id?: Prisma.StringWithAggregatesFilter<"WorkOrder"> | string;
+    organizationId?: Prisma.StringWithAggregatesFilter<"WorkOrder"> | string;
+    customerId?: Prisma.StringWithAggregatesFilter<"WorkOrder"> | string;
+    serviceRequestId?: Prisma.StringNullableWithAggregatesFilter<"WorkOrder"> | string | null;
+    title?: Prisma.StringWithAggregatesFilter<"WorkOrder"> | string;
+    description?: Prisma.StringWithAggregatesFilter<"WorkOrder"> | string;
+    status?: Prisma.EnumWorkOrderStatusWithAggregatesFilter<"WorkOrder"> | $Enums.WorkOrderStatus;
+    priority?: Prisma.EnumWorkOrderPriorityWithAggregatesFilter<"WorkOrder"> | $Enums.WorkOrderPriority;
+    scheduledStart?: Prisma.DateTimeNullableWithAggregatesFilter<"WorkOrder"> | Date | string | null;
+    scheduledEnd?: Prisma.DateTimeNullableWithAggregatesFilter<"WorkOrder"> | Date | string | null;
+    createdAt?: Prisma.DateTimeWithAggregatesFilter<"WorkOrder"> | Date | string;
+    updatedAt?: Prisma.DateTimeWithAggregatesFilter<"WorkOrder"> | Date | string;
+};
+export type WorkOrderCreateInput = {
+    id?: string;
+    title: string;
+    description: string;
+    status?: $Enums.WorkOrderStatus;
+    priority?: $Enums.WorkOrderPriority;
+    scheduledStart?: Date | string | null;
+    scheduledEnd?: Date | string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+    organization: Prisma.OrganizationCreateNestedOneWithoutWorkOrdersInput;
+    customer: Prisma.CustomerCreateNestedOneWithoutWorkOrdersInput;
+    serviceRequest?: Prisma.ServiceRequestCreateNestedOneWithoutWorkOrdersInput;
+    assignments?: Prisma.WorkOrderAssignmentCreateNestedManyWithoutWorkOrderInput;
+    events?: Prisma.WorkOrderEventCreateNestedManyWithoutWorkOrderInput;
+};
+export type WorkOrderUncheckedCreateInput = {
+    id?: string;
+    organizationId: string;
+    customerId: string;
+    serviceRequestId?: string | null;
+    title: string;
+    description: string;
+    status?: $Enums.WorkOrderStatus;
+    priority?: $Enums.WorkOrderPriority;
+    scheduledStart?: Date | string | null;
+    scheduledEnd?: Date | string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+    assignments?: Prisma.WorkOrderAssignmentUncheckedCreateNestedManyWithoutWorkOrderInput;
+    events?: Prisma.WorkOrderEventUncheckedCreateNestedManyWithoutWorkOrderInput;
+};
+export type WorkOrderUpdateInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    title?: Prisma.StringFieldUpdateOperationsInput | string;
+    description?: Prisma.StringFieldUpdateOperationsInput | string;
+    status?: Prisma.EnumWorkOrderStatusFieldUpdateOperationsInput | $Enums.WorkOrderStatus;
+    priority?: Prisma.EnumWorkOrderPriorityFieldUpdateOperationsInput | $Enums.WorkOrderPriority;
+    scheduledStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    scheduledEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    organization?: Prisma.OrganizationUpdateOneRequiredWithoutWorkOrdersNestedInput;
+    customer?: Prisma.CustomerUpdateOneRequiredWithoutWorkOrdersNestedInput;
+    serviceRequest?: Prisma.ServiceRequestUpdateOneWithoutWorkOrdersNestedInput;
+    assignments?: Prisma.WorkOrderAssignmentUpdateManyWithoutWorkOrderNestedInput;
+    events?: Prisma.WorkOrderEventUpdateManyWithoutWorkOrderNestedInput;
+};
+export type WorkOrderUncheckedUpdateInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    organizationId?: Prisma.StringFieldUpdateOperationsInput | string;
+    customerId?: Prisma.StringFieldUpdateOperationsInput | string;
+    serviceRequestId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    title?: Prisma.StringFieldUpdateOperationsInput | string;
+    description?: Prisma.StringFieldUpdateOperationsInput | string;
+    status?: Prisma.EnumWorkOrderStatusFieldUpdateOperationsInput | $Enums.WorkOrderStatus;
+    priority?: Prisma.EnumWorkOrderPriorityFieldUpdateOperationsInput | $Enums.WorkOrderPriority;
+    scheduledStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    scheduledEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    assignments?: Prisma.WorkOrderAssignmentUncheckedUpdateManyWithoutWorkOrderNestedInput;
+    events?: Prisma.WorkOrderEventUncheckedUpdateManyWithoutWorkOrderNestedInput;
+};
+export type WorkOrderCreateManyInput = {
+    id?: string;
+    organizationId: string;
+    customerId: string;
+    serviceRequestId?: string | null;
+    title: string;
+    description: string;
+    status?: $Enums.WorkOrderStatus;
+    priority?: $Enums.WorkOrderPriority;
+    scheduledStart?: Date | string | null;
+    scheduledEnd?: Date | string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+};
+export type WorkOrderUpdateManyMutationInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    title?: Prisma.StringFieldUpdateOperationsInput | string;
+    description?: Prisma.StringFieldUpdateOperationsInput | string;
+    status?: Prisma.EnumWorkOrderStatusFieldUpdateOperationsInput | $Enums.WorkOrderStatus;
+    priority?: Prisma.EnumWorkOrderPriorityFieldUpdateOperationsInput | $Enums.WorkOrderPriority;
+    scheduledStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    scheduledEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type WorkOrderUncheckedUpdateManyInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    organizationId?: Prisma.StringFieldUpdateOperationsInput | string;
+    customerId?: Prisma.StringFieldUpdateOperationsInput | string;
+    serviceRequestId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    title?: Prisma.StringFieldUpdateOperationsInput | string;
+    description?: Prisma.StringFieldUpdateOperationsInput | string;
+    status?: Prisma.EnumWorkOrderStatusFieldUpdateOperationsInput | $Enums.WorkOrderStatus;
+    priority?: Prisma.EnumWorkOrderPriorityFieldUpdateOperationsInput | $Enums.WorkOrderPriority;
+    scheduledStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    scheduledEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type WorkOrderListRelationFilter = {
+    every?: Prisma.WorkOrderWhereInput;
+    some?: Prisma.WorkOrderWhereInput;
+    none?: Prisma.WorkOrderWhereInput;
+};
+export type WorkOrderOrderByRelationAggregateInput = {
+    _count?: Prisma.SortOrder;
+};
+export type WorkOrderCountOrderByAggregateInput = {
+    id?: Prisma.SortOrder;
+    organizationId?: Prisma.SortOrder;
+    customerId?: Prisma.SortOrder;
+    serviceRequestId?: Prisma.SortOrder;
+    title?: Prisma.SortOrder;
+    description?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
+    priority?: Prisma.SortOrder;
+    scheduledStart?: Prisma.SortOrder;
+    scheduledEnd?: Prisma.SortOrder;
+    createdAt?: Prisma.SortOrder;
+    updatedAt?: Prisma.SortOrder;
+};
+export type WorkOrderMaxOrderByAggregateInput = {
+    id?: Prisma.SortOrder;
+    organizationId?: Prisma.SortOrder;
+    customerId?: Prisma.SortOrder;
+    serviceRequestId?: Prisma.SortOrder;
+    title?: Prisma.SortOrder;
+    description?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
+    priority?: Prisma.SortOrder;
+    scheduledStart?: Prisma.SortOrder;
+    scheduledEnd?: Prisma.SortOrder;
+    createdAt?: Prisma.SortOrder;
+    updatedAt?: Prisma.SortOrder;
+};
+export type WorkOrderMinOrderByAggregateInput = {
+    id?: Prisma.SortOrder;
+    organizationId?: Prisma.SortOrder;
+    customerId?: Prisma.SortOrder;
+    serviceRequestId?: Prisma.SortOrder;
+    title?: Prisma.SortOrder;
+    description?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
+    priority?: Prisma.SortOrder;
+    scheduledStart?: Prisma.SortOrder;
+    scheduledEnd?: Prisma.SortOrder;
+    createdAt?: Prisma.SortOrder;
+    updatedAt?: Prisma.SortOrder;
+};
+export type WorkOrderScalarRelationFilter = {
+    is?: Prisma.WorkOrderWhereInput;
+    isNot?: Prisma.WorkOrderWhereInput;
+};
+export type WorkOrderCreateNestedManyWithoutOrganizationInput = {
+    create?: Prisma.XOR<Prisma.WorkOrderCreateWithoutOrganizationInput, Prisma.WorkOrderUncheckedCreateWithoutOrganizationInput> | Prisma.WorkOrderCreateWithoutOrganizationInput[] | Prisma.WorkOrderUncheckedCreateWithoutOrganizationInput[];
+    connectOrCreate?: Prisma.WorkOrderCreateOrConnectWithoutOrganizationInput | Prisma.WorkOrderCreateOrConnectWithoutOrganizationInput[];
+    createMany?: Prisma.WorkOrderCreateManyOrganizationInputEnvelope;
+    connect?: Prisma.WorkOrderWhereUniqueInput | Prisma.WorkOrderWhereUniqueInput[];
+};
+export type WorkOrderUncheckedCreateNestedManyWithoutOrganizationInput = {
+    create?: Prisma.XOR<Prisma.WorkOrderCreateWithoutOrganizationInput, Prisma.WorkOrderUncheckedCreateWithoutOrganizationInput> | Prisma.WorkOrderCreateWithoutOrganizationInput[] | Prisma.WorkOrderUncheckedCreateWithoutOrganizationInput[];
+    connectOrCreate?: Prisma.WorkOrderCreateOrConnectWithoutOrganizationInput | Prisma.WorkOrderCreateOrConnectWithoutOrganizationInput[];
+    createMany?: Prisma.WorkOrderCreateManyOrganizationInputEnvelope;
+    connect?: Prisma.WorkOrderWhereUniqueInput | Prisma.WorkOrderWhereUniqueInput[];
+};
+export type WorkOrderUpdateManyWithoutOrganizationNestedInput = {
+    create?: Prisma.XOR<Prisma.WorkOrderCreateWithoutOrganizationInput, Prisma.WorkOrderUncheckedCreateWithoutOrganizationInput> | Prisma.WorkOrderCreateWithoutOrganizationInput[] | Prisma.WorkOrderUncheckedCreateWithoutOrganizationInput[];
+    connectOrCreate?: Prisma.WorkOrderCreateOrConnectWithoutOrganizationInput | Prisma.WorkOrderCreateOrConnectWithoutOrganizationInput[];
+    upsert?: Prisma.WorkOrderUpsertWithWhereUniqueWithoutOrganizationInput | Prisma.WorkOrderUpsertWithWhereUniqueWithoutOrganizationInput[];
+    createMany?: Prisma.WorkOrderCreateManyOrganizationInputEnvelope;
+    set?: Prisma.WorkOrderWhereUniqueInput | Prisma.WorkOrderWhereUniqueInput[];
+    disconnect?: Prisma.WorkOrderWhereUniqueInput | Prisma.WorkOrderWhereUniqueInput[];
+    delete?: Prisma.WorkOrderWhereUniqueInput | Prisma.WorkOrderWhereUniqueInput[];
+    connect?: Prisma.WorkOrderWhereUniqueInput | Prisma.WorkOrderWhereUniqueInput[];
+    update?: Prisma.WorkOrderUpdateWithWhereUniqueWithoutOrganizationInput | Prisma.WorkOrderUpdateWithWhereUniqueWithoutOrganizationInput[];
+    updateMany?: Prisma.WorkOrderUpdateManyWithWhereWithoutOrganizationInput | Prisma.WorkOrderUpdateManyWithWhereWithoutOrganizationInput[];
+    deleteMany?: Prisma.WorkOrderScalarWhereInput | Prisma.WorkOrderScalarWhereInput[];
+};
+export type WorkOrderUncheckedUpdateManyWithoutOrganizationNestedInput = {
+    create?: Prisma.XOR<Prisma.WorkOrderCreateWithoutOrganizationInput, Prisma.WorkOrderUncheckedCreateWithoutOrganizationInput> | Prisma.WorkOrderCreateWithoutOrganizationInput[] | Prisma.WorkOrderUncheckedCreateWithoutOrganizationInput[];
+    connectOrCreate?: Prisma.WorkOrderCreateOrConnectWithoutOrganizationInput | Prisma.WorkOrderCreateOrConnectWithoutOrganizationInput[];
+    upsert?: Prisma.WorkOrderUpsertWithWhereUniqueWithoutOrganizationInput | Prisma.WorkOrderUpsertWithWhereUniqueWithoutOrganizationInput[];
+    createMany?: Prisma.WorkOrderCreateManyOrganizationInputEnvelope;
+    set?: Prisma.WorkOrderWhereUniqueInput | Prisma.WorkOrderWhereUniqueInput[];
+    disconnect?: Prisma.WorkOrderWhereUniqueInput | Prisma.WorkOrderWhereUniqueInput[];
+    delete?: Prisma.WorkOrderWhereUniqueInput | Prisma.WorkOrderWhereUniqueInput[];
+    connect?: Prisma.WorkOrderWhereUniqueInput | Prisma.WorkOrderWhereUniqueInput[];
+    update?: Prisma.WorkOrderUpdateWithWhereUniqueWithoutOrganizationInput | Prisma.WorkOrderUpdateWithWhereUniqueWithoutOrganizationInput[];
+    updateMany?: Prisma.WorkOrderUpdateManyWithWhereWithoutOrganizationInput | Prisma.WorkOrderUpdateManyWithWhereWithoutOrganizationInput[];
+    deleteMany?: Prisma.WorkOrderScalarWhereInput | Prisma.WorkOrderScalarWhereInput[];
+};
+export type WorkOrderCreateNestedManyWithoutCustomerInput = {
+    create?: Prisma.XOR<Prisma.WorkOrderCreateWithoutCustomerInput, Prisma.WorkOrderUncheckedCreateWithoutCustomerInput> | Prisma.WorkOrderCreateWithoutCustomerInput[] | Prisma.WorkOrderUncheckedCreateWithoutCustomerInput[];
+    connectOrCreate?: Prisma.WorkOrderCreateOrConnectWithoutCustomerInput | Prisma.WorkOrderCreateOrConnectWithoutCustomerInput[];
+    createMany?: Prisma.WorkOrderCreateManyCustomerInputEnvelope;
+    connect?: Prisma.WorkOrderWhereUniqueInput | Prisma.WorkOrderWhereUniqueInput[];
+};
+export type WorkOrderUncheckedCreateNestedManyWithoutCustomerInput = {
+    create?: Prisma.XOR<Prisma.WorkOrderCreateWithoutCustomerInput, Prisma.WorkOrderUncheckedCreateWithoutCustomerInput> | Prisma.WorkOrderCreateWithoutCustomerInput[] | Prisma.WorkOrderUncheckedCreateWithoutCustomerInput[];
+    connectOrCreate?: Prisma.WorkOrderCreateOrConnectWithoutCustomerInput | Prisma.WorkOrderCreateOrConnectWithoutCustomerInput[];
+    createMany?: Prisma.WorkOrderCreateManyCustomerInputEnvelope;
+    connect?: Prisma.WorkOrderWhereUniqueInput | Prisma.WorkOrderWhereUniqueInput[];
+};
+export type WorkOrderUpdateManyWithoutCustomerNestedInput = {
+    create?: Prisma.XOR<Prisma.WorkOrderCreateWithoutCustomerInput, Prisma.WorkOrderUncheckedCreateWithoutCustomerInput> | Prisma.WorkOrderCreateWithoutCustomerInput[] | Prisma.WorkOrderUncheckedCreateWithoutCustomerInput[];
+    connectOrCreate?: Prisma.WorkOrderCreateOrConnectWithoutCustomerInput | Prisma.WorkOrderCreateOrConnectWithoutCustomerInput[];
+    upsert?: Prisma.WorkOrderUpsertWithWhereUniqueWithoutCustomerInput | Prisma.WorkOrderUpsertWithWhereUniqueWithoutCustomerInput[];
+    createMany?: Prisma.WorkOrderCreateManyCustomerInputEnvelope;
+    set?: Prisma.WorkOrderWhereUniqueInput | Prisma.WorkOrderWhereUniqueInput[];
+    disconnect?: Prisma.WorkOrderWhereUniqueInput | Prisma.WorkOrderWhereUniqueInput[];
+    delete?: Prisma.WorkOrderWhereUniqueInput | Prisma.WorkOrderWhereUniqueInput[];
+    connect?: Prisma.WorkOrderWhereUniqueInput | Prisma.WorkOrderWhereUniqueInput[];
+    update?: Prisma.WorkOrderUpdateWithWhereUniqueWithoutCustomerInput | Prisma.WorkOrderUpdateWithWhereUniqueWithoutCustomerInput[];
+    updateMany?: Prisma.WorkOrderUpdateManyWithWhereWithoutCustomerInput | Prisma.WorkOrderUpdateManyWithWhereWithoutCustomerInput[];
+    deleteMany?: Prisma.WorkOrderScalarWhereInput | Prisma.WorkOrderScalarWhereInput[];
+};
+export type WorkOrderUncheckedUpdateManyWithoutCustomerNestedInput = {
+    create?: Prisma.XOR<Prisma.WorkOrderCreateWithoutCustomerInput, Prisma.WorkOrderUncheckedCreateWithoutCustomerInput> | Prisma.WorkOrderCreateWithoutCustomerInput[] | Prisma.WorkOrderUncheckedCreateWithoutCustomerInput[];
+    connectOrCreate?: Prisma.WorkOrderCreateOrConnectWithoutCustomerInput | Prisma.WorkOrderCreateOrConnectWithoutCustomerInput[];
+    upsert?: Prisma.WorkOrderUpsertWithWhereUniqueWithoutCustomerInput | Prisma.WorkOrderUpsertWithWhereUniqueWithoutCustomerInput[];
+    createMany?: Prisma.WorkOrderCreateManyCustomerInputEnvelope;
+    set?: Prisma.WorkOrderWhereUniqueInput | Prisma.WorkOrderWhereUniqueInput[];
+    disconnect?: Prisma.WorkOrderWhereUniqueInput | Prisma.WorkOrderWhereUniqueInput[];
+    delete?: Prisma.WorkOrderWhereUniqueInput | Prisma.WorkOrderWhereUniqueInput[];
+    connect?: Prisma.WorkOrderWhereUniqueInput | Prisma.WorkOrderWhereUniqueInput[];
+    update?: Prisma.WorkOrderUpdateWithWhereUniqueWithoutCustomerInput | Prisma.WorkOrderUpdateWithWhereUniqueWithoutCustomerInput[];
+    updateMany?: Prisma.WorkOrderUpdateManyWithWhereWithoutCustomerInput | Prisma.WorkOrderUpdateManyWithWhereWithoutCustomerInput[];
+    deleteMany?: Prisma.WorkOrderScalarWhereInput | Prisma.WorkOrderScalarWhereInput[];
+};
+export type WorkOrderCreateNestedManyWithoutServiceRequestInput = {
+    create?: Prisma.XOR<Prisma.WorkOrderCreateWithoutServiceRequestInput, Prisma.WorkOrderUncheckedCreateWithoutServiceRequestInput> | Prisma.WorkOrderCreateWithoutServiceRequestInput[] | Prisma.WorkOrderUncheckedCreateWithoutServiceRequestInput[];
+    connectOrCreate?: Prisma.WorkOrderCreateOrConnectWithoutServiceRequestInput | Prisma.WorkOrderCreateOrConnectWithoutServiceRequestInput[];
+    createMany?: Prisma.WorkOrderCreateManyServiceRequestInputEnvelope;
+    connect?: Prisma.WorkOrderWhereUniqueInput | Prisma.WorkOrderWhereUniqueInput[];
+};
+export type WorkOrderUncheckedCreateNestedManyWithoutServiceRequestInput = {
+    create?: Prisma.XOR<Prisma.WorkOrderCreateWithoutServiceRequestInput, Prisma.WorkOrderUncheckedCreateWithoutServiceRequestInput> | Prisma.WorkOrderCreateWithoutServiceRequestInput[] | Prisma.WorkOrderUncheckedCreateWithoutServiceRequestInput[];
+    connectOrCreate?: Prisma.WorkOrderCreateOrConnectWithoutServiceRequestInput | Prisma.WorkOrderCreateOrConnectWithoutServiceRequestInput[];
+    createMany?: Prisma.WorkOrderCreateManyServiceRequestInputEnvelope;
+    connect?: Prisma.WorkOrderWhereUniqueInput | Prisma.WorkOrderWhereUniqueInput[];
+};
+export type WorkOrderUpdateManyWithoutServiceRequestNestedInput = {
+    create?: Prisma.XOR<Prisma.WorkOrderCreateWithoutServiceRequestInput, Prisma.WorkOrderUncheckedCreateWithoutServiceRequestInput> | Prisma.WorkOrderCreateWithoutServiceRequestInput[] | Prisma.WorkOrderUncheckedCreateWithoutServiceRequestInput[];
+    connectOrCreate?: Prisma.WorkOrderCreateOrConnectWithoutServiceRequestInput | Prisma.WorkOrderCreateOrConnectWithoutServiceRequestInput[];
+    upsert?: Prisma.WorkOrderUpsertWithWhereUniqueWithoutServiceRequestInput | Prisma.WorkOrderUpsertWithWhereUniqueWithoutServiceRequestInput[];
+    createMany?: Prisma.WorkOrderCreateManyServiceRequestInputEnvelope;
+    set?: Prisma.WorkOrderWhereUniqueInput | Prisma.WorkOrderWhereUniqueInput[];
+    disconnect?: Prisma.WorkOrderWhereUniqueInput | Prisma.WorkOrderWhereUniqueInput[];
+    delete?: Prisma.WorkOrderWhereUniqueInput | Prisma.WorkOrderWhereUniqueInput[];
+    connect?: Prisma.WorkOrderWhereUniqueInput | Prisma.WorkOrderWhereUniqueInput[];
+    update?: Prisma.WorkOrderUpdateWithWhereUniqueWithoutServiceRequestInput | Prisma.WorkOrderUpdateWithWhereUniqueWithoutServiceRequestInput[];
+    updateMany?: Prisma.WorkOrderUpdateManyWithWhereWithoutServiceRequestInput | Prisma.WorkOrderUpdateManyWithWhereWithoutServiceRequestInput[];
+    deleteMany?: Prisma.WorkOrderScalarWhereInput | Prisma.WorkOrderScalarWhereInput[];
+};
+export type WorkOrderUncheckedUpdateManyWithoutServiceRequestNestedInput = {
+    create?: Prisma.XOR<Prisma.WorkOrderCreateWithoutServiceRequestInput, Prisma.WorkOrderUncheckedCreateWithoutServiceRequestInput> | Prisma.WorkOrderCreateWithoutServiceRequestInput[] | Prisma.WorkOrderUncheckedCreateWithoutServiceRequestInput[];
+    connectOrCreate?: Prisma.WorkOrderCreateOrConnectWithoutServiceRequestInput | Prisma.WorkOrderCreateOrConnectWithoutServiceRequestInput[];
+    upsert?: Prisma.WorkOrderUpsertWithWhereUniqueWithoutServiceRequestInput | Prisma.WorkOrderUpsertWithWhereUniqueWithoutServiceRequestInput[];
+    createMany?: Prisma.WorkOrderCreateManyServiceRequestInputEnvelope;
+    set?: Prisma.WorkOrderWhereUniqueInput | Prisma.WorkOrderWhereUniqueInput[];
+    disconnect?: Prisma.WorkOrderWhereUniqueInput | Prisma.WorkOrderWhereUniqueInput[];
+    delete?: Prisma.WorkOrderWhereUniqueInput | Prisma.WorkOrderWhereUniqueInput[];
+    connect?: Prisma.WorkOrderWhereUniqueInput | Prisma.WorkOrderWhereUniqueInput[];
+    update?: Prisma.WorkOrderUpdateWithWhereUniqueWithoutServiceRequestInput | Prisma.WorkOrderUpdateWithWhereUniqueWithoutServiceRequestInput[];
+    updateMany?: Prisma.WorkOrderUpdateManyWithWhereWithoutServiceRequestInput | Prisma.WorkOrderUpdateManyWithWhereWithoutServiceRequestInput[];
+    deleteMany?: Prisma.WorkOrderScalarWhereInput | Prisma.WorkOrderScalarWhereInput[];
+};
+export type EnumWorkOrderStatusFieldUpdateOperationsInput = {
+    set?: $Enums.WorkOrderStatus;
+};
+export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null;
+};
+export type WorkOrderCreateNestedOneWithoutAssignmentsInput = {
+    create?: Prisma.XOR<Prisma.WorkOrderCreateWithoutAssignmentsInput, Prisma.WorkOrderUncheckedCreateWithoutAssignmentsInput>;
+    connectOrCreate?: Prisma.WorkOrderCreateOrConnectWithoutAssignmentsInput;
+    connect?: Prisma.WorkOrderWhereUniqueInput;
+};
+export type WorkOrderUpdateOneRequiredWithoutAssignmentsNestedInput = {
+    create?: Prisma.XOR<Prisma.WorkOrderCreateWithoutAssignmentsInput, Prisma.WorkOrderUncheckedCreateWithoutAssignmentsInput>;
+    connectOrCreate?: Prisma.WorkOrderCreateOrConnectWithoutAssignmentsInput;
+    upsert?: Prisma.WorkOrderUpsertWithoutAssignmentsInput;
+    connect?: Prisma.WorkOrderWhereUniqueInput;
+    update?: Prisma.XOR<Prisma.XOR<Prisma.WorkOrderUpdateToOneWithWhereWithoutAssignmentsInput, Prisma.WorkOrderUpdateWithoutAssignmentsInput>, Prisma.WorkOrderUncheckedUpdateWithoutAssignmentsInput>;
+};
+export type WorkOrderCreateNestedOneWithoutEventsInput = {
+    create?: Prisma.XOR<Prisma.WorkOrderCreateWithoutEventsInput, Prisma.WorkOrderUncheckedCreateWithoutEventsInput>;
+    connectOrCreate?: Prisma.WorkOrderCreateOrConnectWithoutEventsInput;
+    connect?: Prisma.WorkOrderWhereUniqueInput;
+};
+export type WorkOrderUpdateOneRequiredWithoutEventsNestedInput = {
+    create?: Prisma.XOR<Prisma.WorkOrderCreateWithoutEventsInput, Prisma.WorkOrderUncheckedCreateWithoutEventsInput>;
+    connectOrCreate?: Prisma.WorkOrderCreateOrConnectWithoutEventsInput;
+    upsert?: Prisma.WorkOrderUpsertWithoutEventsInput;
+    connect?: Prisma.WorkOrderWhereUniqueInput;
+    update?: Prisma.XOR<Prisma.XOR<Prisma.WorkOrderUpdateToOneWithWhereWithoutEventsInput, Prisma.WorkOrderUpdateWithoutEventsInput>, Prisma.WorkOrderUncheckedUpdateWithoutEventsInput>;
+};
+export type WorkOrderCreateWithoutOrganizationInput = {
+    id?: string;
+    title: string;
+    description: string;
+    status?: $Enums.WorkOrderStatus;
+    priority?: $Enums.WorkOrderPriority;
+    scheduledStart?: Date | string | null;
+    scheduledEnd?: Date | string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+    customer: Prisma.CustomerCreateNestedOneWithoutWorkOrdersInput;
+    serviceRequest?: Prisma.ServiceRequestCreateNestedOneWithoutWorkOrdersInput;
+    assignments?: Prisma.WorkOrderAssignmentCreateNestedManyWithoutWorkOrderInput;
+    events?: Prisma.WorkOrderEventCreateNestedManyWithoutWorkOrderInput;
+};
+export type WorkOrderUncheckedCreateWithoutOrganizationInput = {
+    id?: string;
+    customerId: string;
+    serviceRequestId?: string | null;
+    title: string;
+    description: string;
+    status?: $Enums.WorkOrderStatus;
+    priority?: $Enums.WorkOrderPriority;
+    scheduledStart?: Date | string | null;
+    scheduledEnd?: Date | string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+    assignments?: Prisma.WorkOrderAssignmentUncheckedCreateNestedManyWithoutWorkOrderInput;
+    events?: Prisma.WorkOrderEventUncheckedCreateNestedManyWithoutWorkOrderInput;
+};
+export type WorkOrderCreateOrConnectWithoutOrganizationInput = {
+    where: Prisma.WorkOrderWhereUniqueInput;
+    create: Prisma.XOR<Prisma.WorkOrderCreateWithoutOrganizationInput, Prisma.WorkOrderUncheckedCreateWithoutOrganizationInput>;
+};
+export type WorkOrderCreateManyOrganizationInputEnvelope = {
+    data: Prisma.WorkOrderCreateManyOrganizationInput | Prisma.WorkOrderCreateManyOrganizationInput[];
+    skipDuplicates?: boolean;
+};
+export type WorkOrderUpsertWithWhereUniqueWithoutOrganizationInput = {
+    where: Prisma.WorkOrderWhereUniqueInput;
+    update: Prisma.XOR<Prisma.WorkOrderUpdateWithoutOrganizationInput, Prisma.WorkOrderUncheckedUpdateWithoutOrganizationInput>;
+    create: Prisma.XOR<Prisma.WorkOrderCreateWithoutOrganizationInput, Prisma.WorkOrderUncheckedCreateWithoutOrganizationInput>;
+};
+export type WorkOrderUpdateWithWhereUniqueWithoutOrganizationInput = {
+    where: Prisma.WorkOrderWhereUniqueInput;
+    data: Prisma.XOR<Prisma.WorkOrderUpdateWithoutOrganizationInput, Prisma.WorkOrderUncheckedUpdateWithoutOrganizationInput>;
+};
+export type WorkOrderUpdateManyWithWhereWithoutOrganizationInput = {
+    where: Prisma.WorkOrderScalarWhereInput;
+    data: Prisma.XOR<Prisma.WorkOrderUpdateManyMutationInput, Prisma.WorkOrderUncheckedUpdateManyWithoutOrganizationInput>;
+};
+export type WorkOrderScalarWhereInput = {
+    AND?: Prisma.WorkOrderScalarWhereInput | Prisma.WorkOrderScalarWhereInput[];
+    OR?: Prisma.WorkOrderScalarWhereInput[];
+    NOT?: Prisma.WorkOrderScalarWhereInput | Prisma.WorkOrderScalarWhereInput[];
+    id?: Prisma.StringFilter<"WorkOrder"> | string;
+    organizationId?: Prisma.StringFilter<"WorkOrder"> | string;
+    customerId?: Prisma.StringFilter<"WorkOrder"> | string;
+    serviceRequestId?: Prisma.StringNullableFilter<"WorkOrder"> | string | null;
+    title?: Prisma.StringFilter<"WorkOrder"> | string;
+    description?: Prisma.StringFilter<"WorkOrder"> | string;
+    status?: Prisma.EnumWorkOrderStatusFilter<"WorkOrder"> | $Enums.WorkOrderStatus;
+    priority?: Prisma.EnumWorkOrderPriorityFilter<"WorkOrder"> | $Enums.WorkOrderPriority;
+    scheduledStart?: Prisma.DateTimeNullableFilter<"WorkOrder"> | Date | string | null;
+    scheduledEnd?: Prisma.DateTimeNullableFilter<"WorkOrder"> | Date | string | null;
+    createdAt?: Prisma.DateTimeFilter<"WorkOrder"> | Date | string;
+    updatedAt?: Prisma.DateTimeFilter<"WorkOrder"> | Date | string;
+};
+export type WorkOrderCreateWithoutCustomerInput = {
+    id?: string;
+    title: string;
+    description: string;
+    status?: $Enums.WorkOrderStatus;
+    priority?: $Enums.WorkOrderPriority;
+    scheduledStart?: Date | string | null;
+    scheduledEnd?: Date | string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+    organization: Prisma.OrganizationCreateNestedOneWithoutWorkOrdersInput;
+    serviceRequest?: Prisma.ServiceRequestCreateNestedOneWithoutWorkOrdersInput;
+    assignments?: Prisma.WorkOrderAssignmentCreateNestedManyWithoutWorkOrderInput;
+    events?: Prisma.WorkOrderEventCreateNestedManyWithoutWorkOrderInput;
+};
+export type WorkOrderUncheckedCreateWithoutCustomerInput = {
+    id?: string;
+    organizationId: string;
+    serviceRequestId?: string | null;
+    title: string;
+    description: string;
+    status?: $Enums.WorkOrderStatus;
+    priority?: $Enums.WorkOrderPriority;
+    scheduledStart?: Date | string | null;
+    scheduledEnd?: Date | string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+    assignments?: Prisma.WorkOrderAssignmentUncheckedCreateNestedManyWithoutWorkOrderInput;
+    events?: Prisma.WorkOrderEventUncheckedCreateNestedManyWithoutWorkOrderInput;
+};
+export type WorkOrderCreateOrConnectWithoutCustomerInput = {
+    where: Prisma.WorkOrderWhereUniqueInput;
+    create: Prisma.XOR<Prisma.WorkOrderCreateWithoutCustomerInput, Prisma.WorkOrderUncheckedCreateWithoutCustomerInput>;
+};
+export type WorkOrderCreateManyCustomerInputEnvelope = {
+    data: Prisma.WorkOrderCreateManyCustomerInput | Prisma.WorkOrderCreateManyCustomerInput[];
+    skipDuplicates?: boolean;
+};
+export type WorkOrderUpsertWithWhereUniqueWithoutCustomerInput = {
+    where: Prisma.WorkOrderWhereUniqueInput;
+    update: Prisma.XOR<Prisma.WorkOrderUpdateWithoutCustomerInput, Prisma.WorkOrderUncheckedUpdateWithoutCustomerInput>;
+    create: Prisma.XOR<Prisma.WorkOrderCreateWithoutCustomerInput, Prisma.WorkOrderUncheckedCreateWithoutCustomerInput>;
+};
+export type WorkOrderUpdateWithWhereUniqueWithoutCustomerInput = {
+    where: Prisma.WorkOrderWhereUniqueInput;
+    data: Prisma.XOR<Prisma.WorkOrderUpdateWithoutCustomerInput, Prisma.WorkOrderUncheckedUpdateWithoutCustomerInput>;
+};
+export type WorkOrderUpdateManyWithWhereWithoutCustomerInput = {
+    where: Prisma.WorkOrderScalarWhereInput;
+    data: Prisma.XOR<Prisma.WorkOrderUpdateManyMutationInput, Prisma.WorkOrderUncheckedUpdateManyWithoutCustomerInput>;
+};
+export type WorkOrderCreateWithoutServiceRequestInput = {
+    id?: string;
+    title: string;
+    description: string;
+    status?: $Enums.WorkOrderStatus;
+    priority?: $Enums.WorkOrderPriority;
+    scheduledStart?: Date | string | null;
+    scheduledEnd?: Date | string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+    organization: Prisma.OrganizationCreateNestedOneWithoutWorkOrdersInput;
+    customer: Prisma.CustomerCreateNestedOneWithoutWorkOrdersInput;
+    assignments?: Prisma.WorkOrderAssignmentCreateNestedManyWithoutWorkOrderInput;
+    events?: Prisma.WorkOrderEventCreateNestedManyWithoutWorkOrderInput;
+};
+export type WorkOrderUncheckedCreateWithoutServiceRequestInput = {
+    id?: string;
+    organizationId: string;
+    customerId: string;
+    title: string;
+    description: string;
+    status?: $Enums.WorkOrderStatus;
+    priority?: $Enums.WorkOrderPriority;
+    scheduledStart?: Date | string | null;
+    scheduledEnd?: Date | string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+    assignments?: Prisma.WorkOrderAssignmentUncheckedCreateNestedManyWithoutWorkOrderInput;
+    events?: Prisma.WorkOrderEventUncheckedCreateNestedManyWithoutWorkOrderInput;
+};
+export type WorkOrderCreateOrConnectWithoutServiceRequestInput = {
+    where: Prisma.WorkOrderWhereUniqueInput;
+    create: Prisma.XOR<Prisma.WorkOrderCreateWithoutServiceRequestInput, Prisma.WorkOrderUncheckedCreateWithoutServiceRequestInput>;
+};
+export type WorkOrderCreateManyServiceRequestInputEnvelope = {
+    data: Prisma.WorkOrderCreateManyServiceRequestInput | Prisma.WorkOrderCreateManyServiceRequestInput[];
+    skipDuplicates?: boolean;
+};
+export type WorkOrderUpsertWithWhereUniqueWithoutServiceRequestInput = {
+    where: Prisma.WorkOrderWhereUniqueInput;
+    update: Prisma.XOR<Prisma.WorkOrderUpdateWithoutServiceRequestInput, Prisma.WorkOrderUncheckedUpdateWithoutServiceRequestInput>;
+    create: Prisma.XOR<Prisma.WorkOrderCreateWithoutServiceRequestInput, Prisma.WorkOrderUncheckedCreateWithoutServiceRequestInput>;
+};
+export type WorkOrderUpdateWithWhereUniqueWithoutServiceRequestInput = {
+    where: Prisma.WorkOrderWhereUniqueInput;
+    data: Prisma.XOR<Prisma.WorkOrderUpdateWithoutServiceRequestInput, Prisma.WorkOrderUncheckedUpdateWithoutServiceRequestInput>;
+};
+export type WorkOrderUpdateManyWithWhereWithoutServiceRequestInput = {
+    where: Prisma.WorkOrderScalarWhereInput;
+    data: Prisma.XOR<Prisma.WorkOrderUpdateManyMutationInput, Prisma.WorkOrderUncheckedUpdateManyWithoutServiceRequestInput>;
+};
+export type WorkOrderCreateWithoutAssignmentsInput = {
+    id?: string;
+    title: string;
+    description: string;
+    status?: $Enums.WorkOrderStatus;
+    priority?: $Enums.WorkOrderPriority;
+    scheduledStart?: Date | string | null;
+    scheduledEnd?: Date | string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+    organization: Prisma.OrganizationCreateNestedOneWithoutWorkOrdersInput;
+    customer: Prisma.CustomerCreateNestedOneWithoutWorkOrdersInput;
+    serviceRequest?: Prisma.ServiceRequestCreateNestedOneWithoutWorkOrdersInput;
+    events?: Prisma.WorkOrderEventCreateNestedManyWithoutWorkOrderInput;
+};
+export type WorkOrderUncheckedCreateWithoutAssignmentsInput = {
+    id?: string;
+    organizationId: string;
+    customerId: string;
+    serviceRequestId?: string | null;
+    title: string;
+    description: string;
+    status?: $Enums.WorkOrderStatus;
+    priority?: $Enums.WorkOrderPriority;
+    scheduledStart?: Date | string | null;
+    scheduledEnd?: Date | string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+    events?: Prisma.WorkOrderEventUncheckedCreateNestedManyWithoutWorkOrderInput;
+};
+export type WorkOrderCreateOrConnectWithoutAssignmentsInput = {
+    where: Prisma.WorkOrderWhereUniqueInput;
+    create: Prisma.XOR<Prisma.WorkOrderCreateWithoutAssignmentsInput, Prisma.WorkOrderUncheckedCreateWithoutAssignmentsInput>;
+};
+export type WorkOrderUpsertWithoutAssignmentsInput = {
+    update: Prisma.XOR<Prisma.WorkOrderUpdateWithoutAssignmentsInput, Prisma.WorkOrderUncheckedUpdateWithoutAssignmentsInput>;
+    create: Prisma.XOR<Prisma.WorkOrderCreateWithoutAssignmentsInput, Prisma.WorkOrderUncheckedCreateWithoutAssignmentsInput>;
+    where?: Prisma.WorkOrderWhereInput;
+};
+export type WorkOrderUpdateToOneWithWhereWithoutAssignmentsInput = {
+    where?: Prisma.WorkOrderWhereInput;
+    data: Prisma.XOR<Prisma.WorkOrderUpdateWithoutAssignmentsInput, Prisma.WorkOrderUncheckedUpdateWithoutAssignmentsInput>;
+};
+export type WorkOrderUpdateWithoutAssignmentsInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    title?: Prisma.StringFieldUpdateOperationsInput | string;
+    description?: Prisma.StringFieldUpdateOperationsInput | string;
+    status?: Prisma.EnumWorkOrderStatusFieldUpdateOperationsInput | $Enums.WorkOrderStatus;
+    priority?: Prisma.EnumWorkOrderPriorityFieldUpdateOperationsInput | $Enums.WorkOrderPriority;
+    scheduledStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    scheduledEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    organization?: Prisma.OrganizationUpdateOneRequiredWithoutWorkOrdersNestedInput;
+    customer?: Prisma.CustomerUpdateOneRequiredWithoutWorkOrdersNestedInput;
+    serviceRequest?: Prisma.ServiceRequestUpdateOneWithoutWorkOrdersNestedInput;
+    events?: Prisma.WorkOrderEventUpdateManyWithoutWorkOrderNestedInput;
+};
+export type WorkOrderUncheckedUpdateWithoutAssignmentsInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    organizationId?: Prisma.StringFieldUpdateOperationsInput | string;
+    customerId?: Prisma.StringFieldUpdateOperationsInput | string;
+    serviceRequestId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    title?: Prisma.StringFieldUpdateOperationsInput | string;
+    description?: Prisma.StringFieldUpdateOperationsInput | string;
+    status?: Prisma.EnumWorkOrderStatusFieldUpdateOperationsInput | $Enums.WorkOrderStatus;
+    priority?: Prisma.EnumWorkOrderPriorityFieldUpdateOperationsInput | $Enums.WorkOrderPriority;
+    scheduledStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    scheduledEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    events?: Prisma.WorkOrderEventUncheckedUpdateManyWithoutWorkOrderNestedInput;
+};
+export type WorkOrderCreateWithoutEventsInput = {
+    id?: string;
+    title: string;
+    description: string;
+    status?: $Enums.WorkOrderStatus;
+    priority?: $Enums.WorkOrderPriority;
+    scheduledStart?: Date | string | null;
+    scheduledEnd?: Date | string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+    organization: Prisma.OrganizationCreateNestedOneWithoutWorkOrdersInput;
+    customer: Prisma.CustomerCreateNestedOneWithoutWorkOrdersInput;
+    serviceRequest?: Prisma.ServiceRequestCreateNestedOneWithoutWorkOrdersInput;
+    assignments?: Prisma.WorkOrderAssignmentCreateNestedManyWithoutWorkOrderInput;
+};
+export type WorkOrderUncheckedCreateWithoutEventsInput = {
+    id?: string;
+    organizationId: string;
+    customerId: string;
+    serviceRequestId?: string | null;
+    title: string;
+    description: string;
+    status?: $Enums.WorkOrderStatus;
+    priority?: $Enums.WorkOrderPriority;
+    scheduledStart?: Date | string | null;
+    scheduledEnd?: Date | string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+    assignments?: Prisma.WorkOrderAssignmentUncheckedCreateNestedManyWithoutWorkOrderInput;
+};
+export type WorkOrderCreateOrConnectWithoutEventsInput = {
+    where: Prisma.WorkOrderWhereUniqueInput;
+    create: Prisma.XOR<Prisma.WorkOrderCreateWithoutEventsInput, Prisma.WorkOrderUncheckedCreateWithoutEventsInput>;
+};
+export type WorkOrderUpsertWithoutEventsInput = {
+    update: Prisma.XOR<Prisma.WorkOrderUpdateWithoutEventsInput, Prisma.WorkOrderUncheckedUpdateWithoutEventsInput>;
+    create: Prisma.XOR<Prisma.WorkOrderCreateWithoutEventsInput, Prisma.WorkOrderUncheckedCreateWithoutEventsInput>;
+    where?: Prisma.WorkOrderWhereInput;
+};
+export type WorkOrderUpdateToOneWithWhereWithoutEventsInput = {
+    where?: Prisma.WorkOrderWhereInput;
+    data: Prisma.XOR<Prisma.WorkOrderUpdateWithoutEventsInput, Prisma.WorkOrderUncheckedUpdateWithoutEventsInput>;
+};
+export type WorkOrderUpdateWithoutEventsInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    title?: Prisma.StringFieldUpdateOperationsInput | string;
+    description?: Prisma.StringFieldUpdateOperationsInput | string;
+    status?: Prisma.EnumWorkOrderStatusFieldUpdateOperationsInput | $Enums.WorkOrderStatus;
+    priority?: Prisma.EnumWorkOrderPriorityFieldUpdateOperationsInput | $Enums.WorkOrderPriority;
+    scheduledStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    scheduledEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    organization?: Prisma.OrganizationUpdateOneRequiredWithoutWorkOrdersNestedInput;
+    customer?: Prisma.CustomerUpdateOneRequiredWithoutWorkOrdersNestedInput;
+    serviceRequest?: Prisma.ServiceRequestUpdateOneWithoutWorkOrdersNestedInput;
+    assignments?: Prisma.WorkOrderAssignmentUpdateManyWithoutWorkOrderNestedInput;
+};
+export type WorkOrderUncheckedUpdateWithoutEventsInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    organizationId?: Prisma.StringFieldUpdateOperationsInput | string;
+    customerId?: Prisma.StringFieldUpdateOperationsInput | string;
+    serviceRequestId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    title?: Prisma.StringFieldUpdateOperationsInput | string;
+    description?: Prisma.StringFieldUpdateOperationsInput | string;
+    status?: Prisma.EnumWorkOrderStatusFieldUpdateOperationsInput | $Enums.WorkOrderStatus;
+    priority?: Prisma.EnumWorkOrderPriorityFieldUpdateOperationsInput | $Enums.WorkOrderPriority;
+    scheduledStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    scheduledEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    assignments?: Prisma.WorkOrderAssignmentUncheckedUpdateManyWithoutWorkOrderNestedInput;
+};
+export type WorkOrderCreateManyOrganizationInput = {
+    id?: string;
+    customerId: string;
+    serviceRequestId?: string | null;
+    title: string;
+    description: string;
+    status?: $Enums.WorkOrderStatus;
+    priority?: $Enums.WorkOrderPriority;
+    scheduledStart?: Date | string | null;
+    scheduledEnd?: Date | string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+};
+export type WorkOrderUpdateWithoutOrganizationInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    title?: Prisma.StringFieldUpdateOperationsInput | string;
+    description?: Prisma.StringFieldUpdateOperationsInput | string;
+    status?: Prisma.EnumWorkOrderStatusFieldUpdateOperationsInput | $Enums.WorkOrderStatus;
+    priority?: Prisma.EnumWorkOrderPriorityFieldUpdateOperationsInput | $Enums.WorkOrderPriority;
+    scheduledStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    scheduledEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    customer?: Prisma.CustomerUpdateOneRequiredWithoutWorkOrdersNestedInput;
+    serviceRequest?: Prisma.ServiceRequestUpdateOneWithoutWorkOrdersNestedInput;
+    assignments?: Prisma.WorkOrderAssignmentUpdateManyWithoutWorkOrderNestedInput;
+    events?: Prisma.WorkOrderEventUpdateManyWithoutWorkOrderNestedInput;
+};
+export type WorkOrderUncheckedUpdateWithoutOrganizationInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    customerId?: Prisma.StringFieldUpdateOperationsInput | string;
+    serviceRequestId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    title?: Prisma.StringFieldUpdateOperationsInput | string;
+    description?: Prisma.StringFieldUpdateOperationsInput | string;
+    status?: Prisma.EnumWorkOrderStatusFieldUpdateOperationsInput | $Enums.WorkOrderStatus;
+    priority?: Prisma.EnumWorkOrderPriorityFieldUpdateOperationsInput | $Enums.WorkOrderPriority;
+    scheduledStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    scheduledEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    assignments?: Prisma.WorkOrderAssignmentUncheckedUpdateManyWithoutWorkOrderNestedInput;
+    events?: Prisma.WorkOrderEventUncheckedUpdateManyWithoutWorkOrderNestedInput;
+};
+export type WorkOrderUncheckedUpdateManyWithoutOrganizationInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    customerId?: Prisma.StringFieldUpdateOperationsInput | string;
+    serviceRequestId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    title?: Prisma.StringFieldUpdateOperationsInput | string;
+    description?: Prisma.StringFieldUpdateOperationsInput | string;
+    status?: Prisma.EnumWorkOrderStatusFieldUpdateOperationsInput | $Enums.WorkOrderStatus;
+    priority?: Prisma.EnumWorkOrderPriorityFieldUpdateOperationsInput | $Enums.WorkOrderPriority;
+    scheduledStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    scheduledEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type WorkOrderCreateManyCustomerInput = {
+    id?: string;
+    organizationId: string;
+    serviceRequestId?: string | null;
+    title: string;
+    description: string;
+    status?: $Enums.WorkOrderStatus;
+    priority?: $Enums.WorkOrderPriority;
+    scheduledStart?: Date | string | null;
+    scheduledEnd?: Date | string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+};
+export type WorkOrderUpdateWithoutCustomerInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    title?: Prisma.StringFieldUpdateOperationsInput | string;
+    description?: Prisma.StringFieldUpdateOperationsInput | string;
+    status?: Prisma.EnumWorkOrderStatusFieldUpdateOperationsInput | $Enums.WorkOrderStatus;
+    priority?: Prisma.EnumWorkOrderPriorityFieldUpdateOperationsInput | $Enums.WorkOrderPriority;
+    scheduledStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    scheduledEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    organization?: Prisma.OrganizationUpdateOneRequiredWithoutWorkOrdersNestedInput;
+    serviceRequest?: Prisma.ServiceRequestUpdateOneWithoutWorkOrdersNestedInput;
+    assignments?: Prisma.WorkOrderAssignmentUpdateManyWithoutWorkOrderNestedInput;
+    events?: Prisma.WorkOrderEventUpdateManyWithoutWorkOrderNestedInput;
+};
+export type WorkOrderUncheckedUpdateWithoutCustomerInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    organizationId?: Prisma.StringFieldUpdateOperationsInput | string;
+    serviceRequestId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    title?: Prisma.StringFieldUpdateOperationsInput | string;
+    description?: Prisma.StringFieldUpdateOperationsInput | string;
+    status?: Prisma.EnumWorkOrderStatusFieldUpdateOperationsInput | $Enums.WorkOrderStatus;
+    priority?: Prisma.EnumWorkOrderPriorityFieldUpdateOperationsInput | $Enums.WorkOrderPriority;
+    scheduledStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    scheduledEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    assignments?: Prisma.WorkOrderAssignmentUncheckedUpdateManyWithoutWorkOrderNestedInput;
+    events?: Prisma.WorkOrderEventUncheckedUpdateManyWithoutWorkOrderNestedInput;
+};
+export type WorkOrderUncheckedUpdateManyWithoutCustomerInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    organizationId?: Prisma.StringFieldUpdateOperationsInput | string;
+    serviceRequestId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    title?: Prisma.StringFieldUpdateOperationsInput | string;
+    description?: Prisma.StringFieldUpdateOperationsInput | string;
+    status?: Prisma.EnumWorkOrderStatusFieldUpdateOperationsInput | $Enums.WorkOrderStatus;
+    priority?: Prisma.EnumWorkOrderPriorityFieldUpdateOperationsInput | $Enums.WorkOrderPriority;
+    scheduledStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    scheduledEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type WorkOrderCreateManyServiceRequestInput = {
+    id?: string;
+    organizationId: string;
+    customerId: string;
+    title: string;
+    description: string;
+    status?: $Enums.WorkOrderStatus;
+    priority?: $Enums.WorkOrderPriority;
+    scheduledStart?: Date | string | null;
+    scheduledEnd?: Date | string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+};
+export type WorkOrderUpdateWithoutServiceRequestInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    title?: Prisma.StringFieldUpdateOperationsInput | string;
+    description?: Prisma.StringFieldUpdateOperationsInput | string;
+    status?: Prisma.EnumWorkOrderStatusFieldUpdateOperationsInput | $Enums.WorkOrderStatus;
+    priority?: Prisma.EnumWorkOrderPriorityFieldUpdateOperationsInput | $Enums.WorkOrderPriority;
+    scheduledStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    scheduledEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    organization?: Prisma.OrganizationUpdateOneRequiredWithoutWorkOrdersNestedInput;
+    customer?: Prisma.CustomerUpdateOneRequiredWithoutWorkOrdersNestedInput;
+    assignments?: Prisma.WorkOrderAssignmentUpdateManyWithoutWorkOrderNestedInput;
+    events?: Prisma.WorkOrderEventUpdateManyWithoutWorkOrderNestedInput;
+};
+export type WorkOrderUncheckedUpdateWithoutServiceRequestInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    organizationId?: Prisma.StringFieldUpdateOperationsInput | string;
+    customerId?: Prisma.StringFieldUpdateOperationsInput | string;
+    title?: Prisma.StringFieldUpdateOperationsInput | string;
+    description?: Prisma.StringFieldUpdateOperationsInput | string;
+    status?: Prisma.EnumWorkOrderStatusFieldUpdateOperationsInput | $Enums.WorkOrderStatus;
+    priority?: Prisma.EnumWorkOrderPriorityFieldUpdateOperationsInput | $Enums.WorkOrderPriority;
+    scheduledStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    scheduledEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    assignments?: Prisma.WorkOrderAssignmentUncheckedUpdateManyWithoutWorkOrderNestedInput;
+    events?: Prisma.WorkOrderEventUncheckedUpdateManyWithoutWorkOrderNestedInput;
+};
+export type WorkOrderUncheckedUpdateManyWithoutServiceRequestInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    organizationId?: Prisma.StringFieldUpdateOperationsInput | string;
+    customerId?: Prisma.StringFieldUpdateOperationsInput | string;
+    title?: Prisma.StringFieldUpdateOperationsInput | string;
+    description?: Prisma.StringFieldUpdateOperationsInput | string;
+    status?: Prisma.EnumWorkOrderStatusFieldUpdateOperationsInput | $Enums.WorkOrderStatus;
+    priority?: Prisma.EnumWorkOrderPriorityFieldUpdateOperationsInput | $Enums.WorkOrderPriority;
+    scheduledStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    scheduledEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type WorkOrderCountOutputType = {
+    assignments: number;
+    events: number;
+};
+export type WorkOrderCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    assignments?: boolean | WorkOrderCountOutputTypeCountAssignmentsArgs;
+    events?: boolean | WorkOrderCountOutputTypeCountEventsArgs;
+};
+export type WorkOrderCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.WorkOrderCountOutputTypeSelect<ExtArgs> | null;
+};
+export type WorkOrderCountOutputTypeCountAssignmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.WorkOrderAssignmentWhereInput;
+};
+export type WorkOrderCountOutputTypeCountEventsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.WorkOrderEventWhereInput;
+};
+export type WorkOrderSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    id?: boolean;
+    organizationId?: boolean;
+    customerId?: boolean;
+    serviceRequestId?: boolean;
+    title?: boolean;
+    description?: boolean;
+    status?: boolean;
+    priority?: boolean;
+    scheduledStart?: boolean;
+    scheduledEnd?: boolean;
+    createdAt?: boolean;
+    updatedAt?: boolean;
+    organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>;
+    customer?: boolean | Prisma.CustomerDefaultArgs<ExtArgs>;
+    serviceRequest?: boolean | Prisma.WorkOrder$serviceRequestArgs<ExtArgs>;
+    assignments?: boolean | Prisma.WorkOrder$assignmentsArgs<ExtArgs>;
+    events?: boolean | Prisma.WorkOrder$eventsArgs<ExtArgs>;
+    _count?: boolean | Prisma.WorkOrderCountOutputTypeDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["workOrder"]>;
+export type WorkOrderSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    id?: boolean;
+    organizationId?: boolean;
+    customerId?: boolean;
+    serviceRequestId?: boolean;
+    title?: boolean;
+    description?: boolean;
+    status?: boolean;
+    priority?: boolean;
+    scheduledStart?: boolean;
+    scheduledEnd?: boolean;
+    createdAt?: boolean;
+    updatedAt?: boolean;
+    organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>;
+    customer?: boolean | Prisma.CustomerDefaultArgs<ExtArgs>;
+    serviceRequest?: boolean | Prisma.WorkOrder$serviceRequestArgs<ExtArgs>;
+}, ExtArgs["result"]["workOrder"]>;
+export type WorkOrderSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    id?: boolean;
+    organizationId?: boolean;
+    customerId?: boolean;
+    serviceRequestId?: boolean;
+    title?: boolean;
+    description?: boolean;
+    status?: boolean;
+    priority?: boolean;
+    scheduledStart?: boolean;
+    scheduledEnd?: boolean;
+    createdAt?: boolean;
+    updatedAt?: boolean;
+    organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>;
+    customer?: boolean | Prisma.CustomerDefaultArgs<ExtArgs>;
+    serviceRequest?: boolean | Prisma.WorkOrder$serviceRequestArgs<ExtArgs>;
+}, ExtArgs["result"]["workOrder"]>;
+export type WorkOrderSelectScalar = {
+    id?: boolean;
+    organizationId?: boolean;
+    customerId?: boolean;
+    serviceRequestId?: boolean;
+    title?: boolean;
+    description?: boolean;
+    status?: boolean;
+    priority?: boolean;
+    scheduledStart?: boolean;
+    scheduledEnd?: boolean;
+    createdAt?: boolean;
+    updatedAt?: boolean;
+};
+export type WorkOrderOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "organizationId" | "customerId" | "serviceRequestId" | "title" | "description" | "status" | "priority" | "scheduledStart" | "scheduledEnd" | "createdAt" | "updatedAt", ExtArgs["result"]["workOrder"]>;
+export type WorkOrderInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>;
+    customer?: boolean | Prisma.CustomerDefaultArgs<ExtArgs>;
+    serviceRequest?: boolean | Prisma.WorkOrder$serviceRequestArgs<ExtArgs>;
+    assignments?: boolean | Prisma.WorkOrder$assignmentsArgs<ExtArgs>;
+    events?: boolean | Prisma.WorkOrder$eventsArgs<ExtArgs>;
+    _count?: boolean | Prisma.WorkOrderCountOutputTypeDefaultArgs<ExtArgs>;
+};
+export type WorkOrderIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>;
+    customer?: boolean | Prisma.CustomerDefaultArgs<ExtArgs>;
+    serviceRequest?: boolean | Prisma.WorkOrder$serviceRequestArgs<ExtArgs>;
+};
+export type WorkOrderIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    organization?: boolean | Prisma.OrganizationDefaultArgs<ExtArgs>;
+    customer?: boolean | Prisma.CustomerDefaultArgs<ExtArgs>;
+    serviceRequest?: boolean | Prisma.WorkOrder$serviceRequestArgs<ExtArgs>;
+};
+export type $WorkOrderPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    name: "WorkOrder";
+    objects: {
+        organization: Prisma.$OrganizationPayload<ExtArgs>;
+        customer: Prisma.$CustomerPayload<ExtArgs>;
+        serviceRequest: Prisma.$ServiceRequestPayload<ExtArgs> | null;
+        assignments: Prisma.$WorkOrderAssignmentPayload<ExtArgs>[];
+        events: Prisma.$WorkOrderEventPayload<ExtArgs>[];
+    };
+    scalars: runtime.Types.Extensions.GetPayloadResult<{
+        id: string;
+        organizationId: string;
+        customerId: string;
+        serviceRequestId: string | null;
+        title: string;
+        description: string;
+        status: $Enums.WorkOrderStatus;
+        priority: $Enums.WorkOrderPriority;
+        scheduledStart: Date | null;
+        scheduledEnd: Date | null;
+        createdAt: Date;
+        updatedAt: Date;
+    }, ExtArgs["result"]["workOrder"]>;
+    composites: {};
+};
+export type WorkOrderGetPayload<S extends boolean | null | undefined | WorkOrderDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$WorkOrderPayload, S>;
+export type WorkOrderCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = Omit<WorkOrderFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    select?: WorkOrderCountAggregateInputType | true;
+};
+export interface WorkOrderDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: {
+        types: Prisma.TypeMap<ExtArgs>['model']['WorkOrder'];
+        meta: {
+            name: 'WorkOrder';
+        };
+    };
+    findUnique<T extends WorkOrderFindUniqueArgs>(args: Prisma.SelectSubset<T, WorkOrderFindUniqueArgs<ExtArgs>>): Prisma.Prisma__WorkOrderClient<runtime.Types.Result.GetResult<Prisma.$WorkOrderPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    findUniqueOrThrow<T extends WorkOrderFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, WorkOrderFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__WorkOrderClient<runtime.Types.Result.GetResult<Prisma.$WorkOrderPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    findFirst<T extends WorkOrderFindFirstArgs>(args?: Prisma.SelectSubset<T, WorkOrderFindFirstArgs<ExtArgs>>): Prisma.Prisma__WorkOrderClient<runtime.Types.Result.GetResult<Prisma.$WorkOrderPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    findFirstOrThrow<T extends WorkOrderFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, WorkOrderFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__WorkOrderClient<runtime.Types.Result.GetResult<Prisma.$WorkOrderPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    findMany<T extends WorkOrderFindManyArgs>(args?: Prisma.SelectSubset<T, WorkOrderFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkOrderPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>;
+    create<T extends WorkOrderCreateArgs>(args: Prisma.SelectSubset<T, WorkOrderCreateArgs<ExtArgs>>): Prisma.Prisma__WorkOrderClient<runtime.Types.Result.GetResult<Prisma.$WorkOrderPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    createMany<T extends WorkOrderCreateManyArgs>(args?: Prisma.SelectSubset<T, WorkOrderCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    createManyAndReturn<T extends WorkOrderCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, WorkOrderCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkOrderPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>;
+    delete<T extends WorkOrderDeleteArgs>(args: Prisma.SelectSubset<T, WorkOrderDeleteArgs<ExtArgs>>): Prisma.Prisma__WorkOrderClient<runtime.Types.Result.GetResult<Prisma.$WorkOrderPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    update<T extends WorkOrderUpdateArgs>(args: Prisma.SelectSubset<T, WorkOrderUpdateArgs<ExtArgs>>): Prisma.Prisma__WorkOrderClient<runtime.Types.Result.GetResult<Prisma.$WorkOrderPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    deleteMany<T extends WorkOrderDeleteManyArgs>(args?: Prisma.SelectSubset<T, WorkOrderDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    updateMany<T extends WorkOrderUpdateManyArgs>(args: Prisma.SelectSubset<T, WorkOrderUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    updateManyAndReturn<T extends WorkOrderUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, WorkOrderUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkOrderPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>;
+    upsert<T extends WorkOrderUpsertArgs>(args: Prisma.SelectSubset<T, WorkOrderUpsertArgs<ExtArgs>>): Prisma.Prisma__WorkOrderClient<runtime.Types.Result.GetResult<Prisma.$WorkOrderPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    count<T extends WorkOrderCountArgs>(args?: Prisma.Subset<T, WorkOrderCountArgs>): Prisma.PrismaPromise<T extends runtime.Types.Utils.Record<'select', any> ? T['select'] extends true ? number : Prisma.GetScalarType<T['select'], WorkOrderCountAggregateOutputType> : number>;
+    aggregate<T extends WorkOrderAggregateArgs>(args: Prisma.Subset<T, WorkOrderAggregateArgs>): Prisma.PrismaPromise<GetWorkOrderAggregateType<T>>;
+    groupBy<T extends WorkOrderGroupByArgs, HasSelectOrTake extends Prisma.Or<Prisma.Extends<'skip', Prisma.Keys<T>>, Prisma.Extends<'take', Prisma.Keys<T>>>, OrderByArg extends Prisma.True extends HasSelectOrTake ? {
+        orderBy: WorkOrderGroupByArgs['orderBy'];
+    } : {
+        orderBy?: WorkOrderGroupByArgs['orderBy'];
+    }, OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>, ByFields extends Prisma.MaybeTupleToUnion<T['by']>, ByValid extends Prisma.Has<ByFields, OrderFields>, HavingFields extends Prisma.GetHavingFields<T['having']>, HavingValid extends Prisma.Has<ByFields, HavingFields>, ByEmpty extends T['by'] extends never[] ? Prisma.True : Prisma.False, InputErrors extends ByEmpty extends Prisma.True ? `Error: "by" must not be empty.` : HavingValid extends Prisma.False ? {
+        [P in HavingFields]: P extends ByFields ? never : P extends string ? `Error: Field "${P}" used in "having" needs to be provided in "by".` : [
+            Error,
+            'Field ',
+            P,
+            ` in "having" needs to be provided in "by"`
+        ];
+    }[HavingFields] : 'take' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "take", you also need to provide "orderBy"' : 'skip' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "skip", you also need to provide "orderBy"' : ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields]>(args: Prisma.SubsetIntersection<T, WorkOrderGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetWorkOrderGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>;
+    readonly fields: WorkOrderFieldRefs;
+}
+export interface Prisma__WorkOrderClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise";
+    organization<T extends Prisma.OrganizationDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.OrganizationDefaultArgs<ExtArgs>>): Prisma.Prisma__OrganizationClient<runtime.Types.Result.GetResult<Prisma.$OrganizationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>;
+    customer<T extends Prisma.CustomerDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CustomerDefaultArgs<ExtArgs>>): Prisma.Prisma__CustomerClient<runtime.Types.Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>;
+    serviceRequest<T extends Prisma.WorkOrder$serviceRequestArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.WorkOrder$serviceRequestArgs<ExtArgs>>): Prisma.Prisma__ServiceRequestClient<runtime.Types.Result.GetResult<Prisma.$ServiceRequestPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    assignments<T extends Prisma.WorkOrder$assignmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.WorkOrder$assignmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkOrderAssignmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>;
+    events<T extends Prisma.WorkOrder$eventsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.WorkOrder$eventsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkOrderEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>;
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): runtime.Types.Utils.JsPromise<TResult1 | TResult2>;
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): runtime.Types.Utils.JsPromise<T | TResult>;
+    finally(onfinally?: (() => void) | undefined | null): runtime.Types.Utils.JsPromise<T>;
+}
+export interface WorkOrderFieldRefs {
+    readonly id: Prisma.FieldRef<"WorkOrder", 'String'>;
+    readonly organizationId: Prisma.FieldRef<"WorkOrder", 'String'>;
+    readonly customerId: Prisma.FieldRef<"WorkOrder", 'String'>;
+    readonly serviceRequestId: Prisma.FieldRef<"WorkOrder", 'String'>;
+    readonly title: Prisma.FieldRef<"WorkOrder", 'String'>;
+    readonly description: Prisma.FieldRef<"WorkOrder", 'String'>;
+    readonly status: Prisma.FieldRef<"WorkOrder", 'WorkOrderStatus'>;
+    readonly priority: Prisma.FieldRef<"WorkOrder", 'WorkOrderPriority'>;
+    readonly scheduledStart: Prisma.FieldRef<"WorkOrder", 'DateTime'>;
+    readonly scheduledEnd: Prisma.FieldRef<"WorkOrder", 'DateTime'>;
+    readonly createdAt: Prisma.FieldRef<"WorkOrder", 'DateTime'>;
+    readonly updatedAt: Prisma.FieldRef<"WorkOrder", 'DateTime'>;
+}
+export type WorkOrderFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.WorkOrderSelect<ExtArgs> | null;
+    omit?: Prisma.WorkOrderOmit<ExtArgs> | null;
+    include?: Prisma.WorkOrderInclude<ExtArgs> | null;
+    where: Prisma.WorkOrderWhereUniqueInput;
+};
+export type WorkOrderFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.WorkOrderSelect<ExtArgs> | null;
+    omit?: Prisma.WorkOrderOmit<ExtArgs> | null;
+    include?: Prisma.WorkOrderInclude<ExtArgs> | null;
+    where: Prisma.WorkOrderWhereUniqueInput;
+};
+export type WorkOrderFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.WorkOrderSelect<ExtArgs> | null;
+    omit?: Prisma.WorkOrderOmit<ExtArgs> | null;
+    include?: Prisma.WorkOrderInclude<ExtArgs> | null;
+    where?: Prisma.WorkOrderWhereInput;
+    orderBy?: Prisma.WorkOrderOrderByWithRelationInput | Prisma.WorkOrderOrderByWithRelationInput[];
+    cursor?: Prisma.WorkOrderWhereUniqueInput;
+    take?: number;
+    skip?: number;
+    distinct?: Prisma.WorkOrderScalarFieldEnum | Prisma.WorkOrderScalarFieldEnum[];
+};
+export type WorkOrderFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.WorkOrderSelect<ExtArgs> | null;
+    omit?: Prisma.WorkOrderOmit<ExtArgs> | null;
+    include?: Prisma.WorkOrderInclude<ExtArgs> | null;
+    where?: Prisma.WorkOrderWhereInput;
+    orderBy?: Prisma.WorkOrderOrderByWithRelationInput | Prisma.WorkOrderOrderByWithRelationInput[];
+    cursor?: Prisma.WorkOrderWhereUniqueInput;
+    take?: number;
+    skip?: number;
+    distinct?: Prisma.WorkOrderScalarFieldEnum | Prisma.WorkOrderScalarFieldEnum[];
+};
+export type WorkOrderFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.WorkOrderSelect<ExtArgs> | null;
+    omit?: Prisma.WorkOrderOmit<ExtArgs> | null;
+    include?: Prisma.WorkOrderInclude<ExtArgs> | null;
+    where?: Prisma.WorkOrderWhereInput;
+    orderBy?: Prisma.WorkOrderOrderByWithRelationInput | Prisma.WorkOrderOrderByWithRelationInput[];
+    cursor?: Prisma.WorkOrderWhereUniqueInput;
+    take?: number;
+    skip?: number;
+    distinct?: Prisma.WorkOrderScalarFieldEnum | Prisma.WorkOrderScalarFieldEnum[];
+};
+export type WorkOrderCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.WorkOrderSelect<ExtArgs> | null;
+    omit?: Prisma.WorkOrderOmit<ExtArgs> | null;
+    include?: Prisma.WorkOrderInclude<ExtArgs> | null;
+    data: Prisma.XOR<Prisma.WorkOrderCreateInput, Prisma.WorkOrderUncheckedCreateInput>;
+};
+export type WorkOrderCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    data: Prisma.WorkOrderCreateManyInput | Prisma.WorkOrderCreateManyInput[];
+    skipDuplicates?: boolean;
+};
+export type WorkOrderCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.WorkOrderSelectCreateManyAndReturn<ExtArgs> | null;
+    omit?: Prisma.WorkOrderOmit<ExtArgs> | null;
+    data: Prisma.WorkOrderCreateManyInput | Prisma.WorkOrderCreateManyInput[];
+    skipDuplicates?: boolean;
+    include?: Prisma.WorkOrderIncludeCreateManyAndReturn<ExtArgs> | null;
+};
+export type WorkOrderUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.WorkOrderSelect<ExtArgs> | null;
+    omit?: Prisma.WorkOrderOmit<ExtArgs> | null;
+    include?: Prisma.WorkOrderInclude<ExtArgs> | null;
+    data: Prisma.XOR<Prisma.WorkOrderUpdateInput, Prisma.WorkOrderUncheckedUpdateInput>;
+    where: Prisma.WorkOrderWhereUniqueInput;
+};
+export type WorkOrderUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    data: Prisma.XOR<Prisma.WorkOrderUpdateManyMutationInput, Prisma.WorkOrderUncheckedUpdateManyInput>;
+    where?: Prisma.WorkOrderWhereInput;
+    limit?: number;
+};
+export type WorkOrderUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.WorkOrderSelectUpdateManyAndReturn<ExtArgs> | null;
+    omit?: Prisma.WorkOrderOmit<ExtArgs> | null;
+    data: Prisma.XOR<Prisma.WorkOrderUpdateManyMutationInput, Prisma.WorkOrderUncheckedUpdateManyInput>;
+    where?: Prisma.WorkOrderWhereInput;
+    limit?: number;
+    include?: Prisma.WorkOrderIncludeUpdateManyAndReturn<ExtArgs> | null;
+};
+export type WorkOrderUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.WorkOrderSelect<ExtArgs> | null;
+    omit?: Prisma.WorkOrderOmit<ExtArgs> | null;
+    include?: Prisma.WorkOrderInclude<ExtArgs> | null;
+    where: Prisma.WorkOrderWhereUniqueInput;
+    create: Prisma.XOR<Prisma.WorkOrderCreateInput, Prisma.WorkOrderUncheckedCreateInput>;
+    update: Prisma.XOR<Prisma.WorkOrderUpdateInput, Prisma.WorkOrderUncheckedUpdateInput>;
+};
+export type WorkOrderDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.WorkOrderSelect<ExtArgs> | null;
+    omit?: Prisma.WorkOrderOmit<ExtArgs> | null;
+    include?: Prisma.WorkOrderInclude<ExtArgs> | null;
+    where: Prisma.WorkOrderWhereUniqueInput;
+};
+export type WorkOrderDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.WorkOrderWhereInput;
+    limit?: number;
+};
+export type WorkOrder$serviceRequestArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.ServiceRequestSelect<ExtArgs> | null;
+    omit?: Prisma.ServiceRequestOmit<ExtArgs> | null;
+    include?: Prisma.ServiceRequestInclude<ExtArgs> | null;
+    where?: Prisma.ServiceRequestWhereInput;
+};
+export type WorkOrder$assignmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.WorkOrderAssignmentSelect<ExtArgs> | null;
+    omit?: Prisma.WorkOrderAssignmentOmit<ExtArgs> | null;
+    include?: Prisma.WorkOrderAssignmentInclude<ExtArgs> | null;
+    where?: Prisma.WorkOrderAssignmentWhereInput;
+    orderBy?: Prisma.WorkOrderAssignmentOrderByWithRelationInput | Prisma.WorkOrderAssignmentOrderByWithRelationInput[];
+    cursor?: Prisma.WorkOrderAssignmentWhereUniqueInput;
+    take?: number;
+    skip?: number;
+    distinct?: Prisma.WorkOrderAssignmentScalarFieldEnum | Prisma.WorkOrderAssignmentScalarFieldEnum[];
+};
+export type WorkOrder$eventsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.WorkOrderEventSelect<ExtArgs> | null;
+    omit?: Prisma.WorkOrderEventOmit<ExtArgs> | null;
+    include?: Prisma.WorkOrderEventInclude<ExtArgs> | null;
+    where?: Prisma.WorkOrderEventWhereInput;
+    orderBy?: Prisma.WorkOrderEventOrderByWithRelationInput | Prisma.WorkOrderEventOrderByWithRelationInput[];
+    cursor?: Prisma.WorkOrderEventWhereUniqueInput;
+    take?: number;
+    skip?: number;
+    distinct?: Prisma.WorkOrderEventScalarFieldEnum | Prisma.WorkOrderEventScalarFieldEnum[];
+};
+export type WorkOrderDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.WorkOrderSelect<ExtArgs> | null;
+    omit?: Prisma.WorkOrderOmit<ExtArgs> | null;
+    include?: Prisma.WorkOrderInclude<ExtArgs> | null;
+};
